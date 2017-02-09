@@ -18,6 +18,8 @@ RSpec.feature 'Editing Articles' do
     click_button 'Update Article'
 
     expect(page).to have_content('Article has been updated')
+    expect(page).to have_content('Updated Title')
+    expect(page).to have_content('Updated Body of Article')
     expect(page.current_path).to eq(article_path(@article))
   end
 
