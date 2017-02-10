@@ -14,9 +14,6 @@ RSpec.feature 'Deleting an Article' do
 
     expect(page).to have_content('Article has been deleted')
     expect(page.current_path).to eq(articles_path)
-    within('h1#no-articles') do
-      expect(page).to have_content('No Articles Created')
-    end
   end
 
 end
