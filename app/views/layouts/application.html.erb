@@ -15,51 +15,18 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
 
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="<%= root_path %>">BDD Blog</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-              <li>
-                <a href="#">
-                  Signed in as <%= current_user.email %>
-                </a>
-              </li>
-              <li> <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> </li>
-            <% else %>
-              <li> <%= link_to 'Sign up', new_user_registration_path %> </li>
-              <li> <%= link_to 'Sign in', new_user_session_path %> </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <%= render 'shared/header' %>
 
     <div class="container">
       <div class="row">
         <div class="col-md-12">
 
-          <% flash.each do |key, message| %>
-            <div class="text-center alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
-              <%= message %>
-            </div>
-          <% end %>
+          <%= render 'shared/message'%>
           <%= yield %>
 
         </div>
       </div>
     </div>
-
   </body>
 </html>
